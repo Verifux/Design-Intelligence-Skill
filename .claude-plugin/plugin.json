@@ -1,21 +1,25 @@
 {
-  "name": "kish-design-intelligence",
-  "description": "A 6-stage design intelligence stack for building non-generic, high-quality web interfaces. Covers strategy, public-gallery reference, anti-slop generation, audit, verify, and deliver — with peer-dependency wiring for third-party skills.",
-  "version": "1.0.0",
+  "name": "design-intelligence",
+  "description": "A six-stage design intelligence stack for Claude Code. An orchestrator routes any UI, copy, or product task through strategy, reference, generate, audit, verify, and deliver, in that order. The generate stage allows only two sources for a design decision: a measured reference value or a named audit checkpoint, and emits the trail as a decision ledger before any code.",
+  "version": "1.2.0",
   "author": {
     "name": "Kishan Rama",
     "email": "kishan@designerama.co.za"
   },
-  "homepage": "https://github.com/kishanrama/kish-design-intelligence",
+  "homepage": "https://github.com/Verifux/Design-Intelligence",
+  "repository": "https://github.com/Verifux/Design-Intelligence",
   "license": "MIT",
   "keywords": [
     "design",
     "frontend",
     "claude-code",
+    "agent-skills",
     "anti-slop",
     "landing-page",
     "taste-arbitrage",
     "design-system",
-    "design-intelligence"
+    "design-intelligence",
+    "orchestrator",
+    "evidence-led"
   ]
 }

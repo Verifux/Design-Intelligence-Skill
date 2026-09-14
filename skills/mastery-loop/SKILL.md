@@ -37,7 +37,7 @@ Named patterns to call out directly, not gently talk around:
 | **Control-seeking via over-research** | Reading/comparing more options instead of committing to one and moving | Pick the reasonable option, timebox the decision, move |
 | **Silent stall** | A task quietly disappears from the conversation for multiple sessions without being named as dropped | Ask directly: is this cancelled, delayed, or avoided? |
 
-**The Override** — apply the moment any of the above shows up:
+**The Override**: apply the moment any of the above shows up:
 Do the smallest possible version of the thing right now. Not the perfect version. The started version.
 
 ---
@@ -70,7 +70,7 @@ When any session involves UI, visual design, copy, or product positioning, run t
 
 **After receiving:**
 1. Did it answer what was actually needed?
-2. If not — unclear prompt or model limitation?
+2. If not, unclear prompt or model limitation?
 3. What one change makes the next prompt better?
 
 ---
@@ -105,7 +105,7 @@ When any session involves UI, visual design, copy, or product positioning, run t
 ## Weekly Review (10 min)
 
 - What did I build or ship this week?
-- What did I avoid, and why — name the real reason?
+- What did I avoid, and why, name the real reason?
 - One thing I will do differently.
 - What moved closer to the primary project goal?
 

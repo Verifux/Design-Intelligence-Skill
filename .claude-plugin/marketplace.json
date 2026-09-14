@@ -1,0 +1,20 @@
+{
+  "name": "design-intelligence",
+  "description": "Design Intelligence: a six-stage stack that routes design, copy, and product tasks through the right skill at the right stage",
+  "owner": {
+    "name": "Kishan Rama",
+    "email": "kishan@designerama.co.za"
+  },
+  "plugins": [
+    {
+      "name": "design-intelligence",
+      "description": "Orchestrator plus evidence-led-frontend, taste-arbitrage, and mastery-loop",
+      "version": "1.2.0",
+      "source": "./",
+      "author": {
+        "name": "Kishan Rama",
+        "email": "kishan@designerama.co.za"
+      }
+    }
+  ]
+}
