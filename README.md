@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Design Intelligence, a six stage design stack for Claude Code" width="100%" />
+  <img src="assets/banner.svg" alt="Design Intelligence Skill, a six stage design stack for Claude Code" width="100%" />
 </p>
 
-<h1 align="center">Design Intelligence</h1>
+<h1 align="center">Design Intelligence Skill</h1>
 
 <p align="center">
   <em>Six stages between a brief and an interface that does not look generated.</em>
