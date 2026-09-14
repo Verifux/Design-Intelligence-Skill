@@ -1,13 +1,13 @@
 {
   "name": "design-intelligence",
   "description": "A six-stage design intelligence stack for Claude Code. An orchestrator routes any UI, copy, or product task through strategy, reference, generate, audit, verify, and deliver, in that order. The generate stage allows only two sources for a design decision: a measured reference value or a named audit checkpoint, and emits the trail as a decision ledger before any code.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": {
     "name": "Kishan Rama",
     "email": "kishan@designerama.co.za"
   },
-  "homepage": "https://github.com/Verifux/Design-Intelligence",
-  "repository": "https://github.com/Verifux/Design-Intelligence",
+  "homepage": "https://github.com/Verifux/Design-Intelligence-Skill",
+  "repository": "https://github.com/Verifux/Design-Intelligence-Skill",
   "license": "MIT",
   "keywords": [
     "design",

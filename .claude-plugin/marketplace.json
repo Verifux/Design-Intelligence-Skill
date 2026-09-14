@@ -9,7 +9,7 @@
     {
       "name": "design-intelligence",
       "description": "Orchestrator plus evidence-led-frontend, taste-arbitrage, and mastery-loop",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "source": "./",
       "author": {
         "name": "Kishan Rama",

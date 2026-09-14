@@ -29,7 +29,7 @@ The stages are the product. The skills are swappable.
 ## Install
 
 ```bash
-git clone https://github.com/Verifux/Design-Intelligence.git ~/.claude/plugins/design-intelligence
+git clone https://github.com/Verifux/Design-Intelligence-Skill.git ~/.claude/plugins/design-intelligence
 ```
 
 Or drop a single `SKILL.md` into `~/.claude/skills/` and use it on its own. Every skill here is a standalone portable file with no build step and no runtime.

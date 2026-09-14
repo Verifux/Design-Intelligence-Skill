@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.1 · 14 September 2026
+
+Repository renamed to `Design-Intelligence-Skill`.
+
+### Changed
+- Clone URL in the README, and `homepage` and `repository` in `plugin.json`, now point at the new name.
+- The local git remote was still pointing at `kish-design-intelligence`, two renames behind. GitHub redirected it, which is why nothing appeared broken. Updated.
+
+Nothing about the skills changed. The plugin name and the slash command are still `design-intelligence`, so no reinstall is needed. GitHub redirects the old URLs, but anything hardcoding them should be updated rather than relying on that.
+
+---
+
 ## 1.2.0 · 14 September 2026
 
 The repo is now entirely original work. No vendored skills.
