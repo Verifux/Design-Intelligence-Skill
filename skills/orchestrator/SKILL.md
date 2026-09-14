@@ -137,7 +137,11 @@ npx ui-skills add fixing-motion-performance
 
 ## S3 Audit: `/evidence-led-frontend` (audit pass)
 
-For any existing site. Run before generating. The same skill handles this: point it at existing markup and it diagnoses against the checkpoint gates before it proposes a change. Covers:
+For any existing site. Run before generating. The same skill handles this: point it at existing markup and it diagnoses against the checkpoint gates before it proposes a change.
+
+**Peer-dep alternative.** `/redesign-existing-projects` (taste-skill) does the same job from a different angle: it pattern-matches 60+ known generic patterns rather than testing against checkpoint IDs. Running both is the convergence rule in action, and where they agree you have a real finding rather than one tool's opinion. Do not run either in S2 by mistake. They diagnose; they are not generators.
+
+Covers:
 - Typography (font swap priority, tracking, scale)
 - Color and surfaces (palette cleanup, accent discipline)
 - Layout (symmetry, grid, spacing, max-width)
