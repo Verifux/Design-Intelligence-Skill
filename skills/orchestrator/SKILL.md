@@ -9,19 +9,21 @@ allowed-tools: Bash, Read, Write, Edit, AskUserQuestion, Skill
 
 6 stages. Every UI, copy, and product design task routes through this chain. Do not skip stages, each one is a quality gate.
 
+Everything this orchestrator routes to is in this repo. Four original skills, MIT, no third-party installs required. The stages are the product, and the discipline is the order and the gates, not a particular tool.
+
 ---
 
 ## Stage Map
 
-| Stage | Name | Skill(s) | Job |
+| Stage | Name | Skill or method | Job |
 |---|---|---|---|
-| S0 | Strategy | `/taste-arbitrage` | What should the words say? Run weak-vs-strong test before any copy is written |
-| S1 | Reference | Public galleries (Awwwards, Dribbble, CSSDA, Mobbin) + optional `refero` MCP / `refero-design` skill | Extract palette, type, and layout signals before building anything |
-| S2 | Generate | `/evidence-led-frontend` (landing/portfolio) + peer deps for any UI | Build with constraints from S0 and S1 already in hand |
-| S2M | Generate · Motion | Doctrine gate, script, build/edit, audio (peer skills + HyperFrames) | When the deliverable moves. Name the job of each motion, write the hook, build so the render reproduces |
-| S3 | Audit | `/evidence-led-frontend` audit pass + peer dep `21st-ui-review` | For existing builds, audit before generating |
-| S4 | Verify | Peer dep `/impeccable` | Post-flight. `npm run design:check`. Exit 2 = fix before shipping |
-| S5 | Deliver | Peer dep `/scroll-world` (cinematic landing) + `/frontend-design-toolkit` (tool selection) | Deliver the output in the right format |
+| S0 | Strategy | `/taste-arbitrage` | What should the words say? Run the weak-vs-strong test before any copy is written |
+| S1 | Reference | Public galleries + your own extraction run | Pull palette, type, and layout signals off real sites before building anything |
+| S2 | Generate | `/evidence-led-frontend` | Build with the constraints from S0 and S1 already in hand, ledger before code |
+| S2M | Generate · Motion | The motion method below | When the deliverable moves. Name the job of each motion, write the hook, build so the render reproduces |
+| S3 | Audit | `/evidence-led-frontend` (audit pass) | For an existing build, diagnose against the gates before you touch anything |
+| S4 | Verify | The checkpoint gates + the render check | Post-flight. A build is not done because it renders |
+| S5 | Deliver | The delivery method below | Ship the output in the right format and hand it over so the next edit starts warm |
 
 ---
 
@@ -35,15 +37,11 @@ When invoked, read the task context and route:
 
 **Existing site being improved** → S3 (`/evidence-led-frontend`, audit before it touches anything) → S4 to verify
 
-**Component or UI in any framework** → S2 (peer dep: `21st-ai` / `21st-ui-build` / `ui-styling`)
+**A component or product UI** → S2 (`/evidence-led-frontend` discipline, the any-UI note below)
 
 **Any deliverable that moves** (reel, short, explainer, promo, title card, animated UI, scroll-scrubbed film) → S2 → **S2M Motion** before a frame is rendered
 
-**Cinematic scroll landing page** → S5 (peer dep: `/scroll-world`)
-
-**Choosing which tool or skill to use** → S5 (peer dep: `/frontend-design-toolkit`)
-
-**End of any session** → Run the `/mastery-loop` retrospective (2 min)
+**End of any session** → run the `/mastery-loop` retrospective (2 min)
 
 ---
 
@@ -60,32 +58,18 @@ Run before any copy is written. The weak-vs-strong test:
 
 ## S1 Reference: Public Galleries
 
-Pull from these sources before building. Mine for specific decisions, not whole systems.
+Pull from these public sources before building. Mine for specific decisions, not whole systems.
 
 | Source | What to extract |
 |---|---|
-| **Awwwards** (`awwwards.com`) | Winning type pairings, layout composition, motion patterns. Filter by year, check site of the day and site of the month for current signals |
-| **Dribbble** (`dribbble.com`) | Color palette ideas, micro-interaction patterns, card and UI component details |
-| **CSS Design Awards** (`cssdesignawards.com`) | Production-quality interaction and animation references. Look at Special Kudos winners |
-| **Mobbin** (`mobbin.com`) | Mobile-first patterns, onboarding flows, navigation patterns. Best for product UI reference |
+| **Awwwards** (`awwwards.com`) | Winning type pairings, layout composition, motion patterns. Filter by year, check site of the day for current signals |
+| **Dribbble** (`dribbble.com`) | Color palette ideas, micro-interaction patterns, card and component details. Never a full page layout |
+| **CSS Design Awards** (`cssdesignawards.com`) | Production-quality interaction references, with published per-entry criteria so you can read why it scored |
+| **Mobbin** (`mobbin.com`) | Mobile-first patterns, onboarding flows, real product UI states |
 
-### Refero (optional, needs the MCP configured)
+**Extraction method.** Pick 3 sites. For each, note: font family, type scale, primary color and neutral, layout family (grid type, hero layout), and motion signature (scroll behavior, hover states). Do not copy markup, extract the visual system. Measure the values with a script rather than recalling them, so S2 has real numbers to build from.
 
-Refero indexes real shipped product UI, so it answers "how do real products actually solve this" rather than "what looks good in a gallery shot". It is a searchable source, not a replacement for the convergence rule below.
-
-| Tool | Use it for |
-|---|---|
-| `refero_search_styles` | Visual direction. Start here when the look is undecided |
-| `refero_search_screens` | A concrete screen pattern (pricing, settings, empty state, onboarding) |
-| `refero_search_flows` | A whole journey across several screens, such as signup or checkout |
-| `refero_get_screen_image` | Pull the actual screenshot once a result looks right |
-| `refero_get_similar_screens` | Widen the set around one good result before committing |
-
-If the MCP is not connected, the `refero-design` skill still carries the research-first method and craft knowledge offline. Install: `npx skills add https://github.com/referodesign/refero_skill --skill refero-design`
-
-**Extraction method:** Pick 3 sites from any source. For each, note: font family, type scale, primary color + neutral, layout family (grid type, hero layout), motion signature (scroll behavior, hover states). Do not copy markup, extract the visual system.
-
-**Convergence rule:** Where two or more independent references independently use the same type choice, palette signal, or layout pattern, that is the real trend. Weight it.
+**Convergence rule.** Where two or more independent references use the same type choice, palette signal, or layout pattern, that is the real trend. Weight it. Where only one does, investigate before you copy it.
 
 ---
 
@@ -98,43 +82,11 @@ It emits a decision ledger BEFORE the code. If a run produces markup without a l
 
 Declare the read first: *"Reading this as a [page kind] for [audience], where the visitor's single next action is [action], and the thing that must land in the first viewport is [claim]."* If you cannot name the action, stop and ask.
 
-### Style presets (the taste-skill family)
-
-`/evidence-led-frontend` is the default and is the only one of these that enforces an evidence trail. Reach for a taste-skill preset instead when the visual direction is already decided and you want that specific language. Load only one preset at a time, they conflict with each other by design. A preset and `/evidence-led-frontend` compose fine: the preset supplies the look, the ledger still has to justify it.
-
-| Skill | Use when |
-|---|---|
-| `/high-end-visual-design` | It must feel expensive. Softer contrast, generous whitespace, spring motion |
-| `/minimalist-ui` | Editorial product UI, Notion or Linear temperament, warm monochrome, flat bento |
-| `/industrial-brutalist-ui` | Swiss type, extreme scale contrast, rigid grids, deliberately raw |
-| `/gpt-taste` | Driving GPT or Codex rather than Claude. Harder enforcement, higher variance |
-| `/stitch-design-taste` | The deliverable is a Google Stitch `DESIGN.md` rather than code |
-| `/design-taste-frontend-v1` | v2 broke something specific and you need the old behaviour back |
-
-Image-only skills belong in S1, not here. They emit reference frames, never code: `/imagegen-frontend-web`, `/imagegen-frontend-mobile`, `/brandkit`. `/image-to-code` is the bridge: it generates references, reads them, then implements to match. State the pipeline explicitly in the prompt, for example "generate images, then analyse, then code".
-
 ### Any UI (components, product interfaces)
+The same discipline carries, the scope changes. `/evidence-led-frontend` is tuned for marketing pages, so for a component or a product screen, keep the ledger and the gates but drop the large-display-type baseline, which is wrong for dense UI. Build against whatever component tooling the project already has, the ledger still governs every decision. If the project has a design system, read it first and inherit it rather than inventing a parallel one.
 
-Use the 21st family. It has four distinct jobs and picking the wrong one wastes a round trip.
-
-| Skill | Job |
-|---|---|
-| `/21st-ui-explore` | Direction undecided. Produces several meaningfully different options |
-| `/21st-ai` | Sketch from a prompt, iterate a variant in place, pull the code out |
-| `/21st-ui-build` | Direction already chosen. Build production UI against the project's design context |
-| `/21st-cli-use` | Search and install existing catalogue components, themes, templates |
-
-Auto-trigger worth knowing: when a project has a `components.json`, search 21st before hand-writing UI.
-
-Refresh all 21st skills with `npx @21st-dev/cli install-skill`.
-
-### Component library / design system
-**Peer dependencies:**
-```bash
-npx ui-skills add baseline-ui
-npx ui-skills add fixing-accessibility
-npx ui-skills add fixing-motion-performance
-```
+### Direction already decided
+When the visual language is already chosen, you can skip the reference hunt and go straight to building. The ledger does not get skipped with it. Every decision still names its source, even when the source is "the brand system says so."
 
 ---
 
@@ -152,19 +104,13 @@ One rule governs all of it: every motion does a job or it is cut. A move either 
 
 **4. Audio.** A narration voice, a music bed, and cuts that land on the beat. The music has to be licensed for the use. A placeholder track is for checking timing and never ships.
 
-Peer skills supply the craft at each step and install separately. HyperFrames builds branded, seam-authored compositions as standalone HTML you can diff and re-render:
-```bash
-npx skills add heygen-com/hyperframes
-```
-Scroll-scrubbed landing films route through S5 below.
+The frames animate the same evidence a static page does, so the motion inherits the palette, type, and accent discipline from S1 and S2 rather than starting a new look.
 
 ---
 
 ## S3 Audit: `/evidence-led-frontend` (audit pass)
 
-For any existing site. Run before generating. The same skill handles this: point it at existing markup and it diagnoses against the checkpoint gates before it proposes a change.
-
-**Peer-dep alternative.** `/redesign-existing-projects` (taste-skill) does the same job from a different angle: it pattern-matches 60+ known generic patterns rather than testing against checkpoint IDs. Running both is the convergence rule in action, and where they agree you have a real finding rather than one tool's opinion. Do not run either in S2 by mistake. They diagnose; they are not generators.
+For any existing site. Run before generating. The same skill handles this: point it at existing markup and it diagnoses against the checkpoint gates before it proposes a change. Generating first is how a redesign quietly becomes a rewrite.
 
 Covers:
 - Typography (font swap priority, tracking, scale)
@@ -175,28 +121,20 @@ Covers:
 - Component patterns (generic card, three-equal-cards, accordion FAQ)
 - Code quality (semantic HTML, inline styles, z-index scale)
 
-**Supplementary audit peer dep:**
-```bash
-# 21st.dev UI review (lint-style design check)
-claude plugin add 21st-dev/21st-ui-review
-```
-
 ---
 
 ## S4 Verify
 
-**Peer dependency:**
-```bash
-# impeccable (design quality checker)
-npx add-skill impeccable/impeccable
-```
+A build is not done because it renders. Run the checkpoint gates from `/evidence-led-frontend` against it, in this order:
 
-After wiring, verify runs as:
-```bash
-npm run design:check
-```
+- **Contrast** (`acc_01`). Body text at 4.5:1, large text at 3:1. Measure it, do not eyeball it.
+- **Focus** (`acc_02`). Tab through the page. If you lose the cursor, it fails.
+- **Image and icon accessibility** (`acc_03`), **text sizing** (`acc_06`).
+- **CTA hierarchy** (`cvr_01`) and **value-proposition clarity** (`cvr_03`). The first viewport says what this is and who it is for, with one primary action.
+- **Visual consistency** (`con_01`). No second type scale or second grey family appears mid-page.
+- **Factual groundedness** (`aix_04`). No invented statistic, customer name, or fake testimonial. Placeholders are labelled as placeholders.
 
-Exit code 2 = fix before shipping. Non-negotiable.
+Fix what fails. Report what you could not fix and why. A gate you skipped is a gate that fails in front of a client.
 
 ### Motion: verify by render
 
@@ -206,63 +144,19 @@ A motion piece is not done because the build passed or the timeline looks right 
 
 ## S5 Deliver
 
-### Cinematic scroll landing page
-**Peer dependency:**
-```bash
-claude plugin add oso95/scroll-world
-```
-Generates a scroll-scrubbed landing page using Higgsfield (stills) and Monid (video). Full 8-step pipeline: interview → stills → float → camera architecture → connectors → encode → assemble → QA.
+Ship the output in the format the destination expects, and hand it over so the next person does not start cold.
 
-### Tool and skill selection
-**Peer dependency:**
-```bash
-claude plugin add wilwaldon/Claude-Code-Frontend-Design-Toolkit
-```
-Reference for 70+ frontend tools organized by task, picks the right animation lib, MCP, or install stack for the job.
+**Static pages.** Semantic HTML, a real heading order, no placeholder comments left in, and the decision ledger alongside the code so a reviewer can see why each choice was made.
 
-### Motion delivery
+**Motion.** The aspect the platform expects: 9:16 for a reel, short, or TikTok, 16:9 for YouTube and most embeds. Write faststart so it plays before it finishes downloading. Hand over the caption file, two alternate hooks, and the facts sheet with its sources.
 
-Ship the piece in the aspect the platform expects: 9:16 for a reel, short, or TikTok, 16:9 for YouTube and most embeds. Write faststart so it plays before it finishes downloading. Hand over the caption file, two alternate hooks, and the facts sheet with its sources, so the next edit does not start from nothing.
-
----
-
-## Peer Dependencies: Install Everything
-
-Bundled in this repo: `/taste-arbitrage`, `/mastery-loop`, and the orchestrator you are reading.
-
-Everything below is third-party and installs separately.
-
-```bash
-# Taste-skill family (Leonxlnx). One command installs all of them:
-# design-taste-frontend, gpt-taste, high-end-visual-design, minimalist-ui,
-# industrial-brutalist-ui, stitch-design-taste, redesign-existing-projects,
-# full-output-enforcement, image-to-code, imagegen-frontend-web,
-# imagegen-frontend-mobile, brandkit
-npx skills add Leonxlnx/taste-skill
-
-# Pin a single one instead, by its install name (not its folder name)
-npx skills add Leonxlnx/taste-skill --skill "design-taste-frontend"
-
-# 21st.dev skill family, and how to refresh it later
-npx @21st-dev/cli install-skill
-
-# Refero: research-first design method, plus live search of real shipped UI
-npx skills add https://github.com/referodesign/refero_skill --skill refero-design
-claude mcp add --transport http refero https://api.refero.design/mcp \
-  --header "Authorization: Bearer <your-refero-key>"
-
-# Others
-claude plugin add oso95/scroll-world
-claude plugin add wilwaldon/Claude-Code-Frontend-Design-Toolkit
-```
-
-**Install location matters.** `npx skills add` writes to `.agents/skills/` in the current directory and symlinks into Claude Code, so running it from different folders gives you different skill sets. `claude mcp add` without `-s user` is likewise scoped to the current project.
+**Everything.** Say plainly what is verified and what is still an assumption. A deliverable that hides its open questions is the expensive kind, because it looks finished.
 
 ---
 
 ## Convergence Rule
 
-Where two or more tools independently flag the same issue, same type problem, same copy weakness, same layout pattern, that is the real signal. Act on it.
+Where two or more independent checks flag the same issue, same type problem, same copy weakness, same layout pattern, that is the real signal. Act on it. Where only one does, investigate before you rewrite anything.
 
 ---
 

@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.4.0 · 5 November 2026
+
+Self-contained. The stack used to route several stages to third-party skills and tools as peer dependencies. It now stands entirely on its own four skills, so there is nothing external to install and the whole six-stage chain works after a single clone.
+
+### Removed
+- The "wider ecosystem" and "peer dependencies" install lists, and every third-party pointer in the orchestrator: taste-skill and its style presets, the 21st.dev family, Refero, scroll-world, the frontend design toolkit, the `impeccable` verify step, HyperFrames, and the `ui-skills` component packs.
+
+### Changed
+- **S2 Generate** now covers component and product UI with the same ledger-and-gates discipline, tool-agnostic, instead of routing to a third-party component skill.
+- **S2M Motion** describes the build as a deterministic, seek-safe render in whatever renderer you use, with no named install.
+- **S4 Verify** runs the checkpoint gates from `evidence-led-frontend` directly (contrast, focus, CTA hierarchy, consistency, factual groundedness) and the motion render check, rather than wiring in an external checker.
+- **S5 Deliver** carries its own static and motion delivery rules.
+- README, stage table, and `THIRD-PARTY-NOTICES.md` rewritten to match. The repo is now fully original with no peer-dependency list.
+
 ## 1.3.0 · 5 November 2026
 
 Motion is now a stage. The stack covered static interfaces end to end and said nothing about work that moves, so a reel, an explainer, a promo, or an animated title fell outside it. This closes that gap.

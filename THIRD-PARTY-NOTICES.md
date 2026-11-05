@@ -1,44 +1,13 @@
 # Third-party notices
 
-**Nothing in `skills/` is third-party.** Every skill in this repository is original
-work. There is no vendored code and no redistributed content, so this file exists
-to record what is *referenced* rather than what is included.
-
----
-
-## Referenced, not redistributed
-
-These are named in the documentation and installed separately by the user. No
-files from them are copied into this repository.
-
-| Project | Source | Relationship |
-|---|---|---|
-| taste-skill | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | Composes with this repo. It provides visual style presets, this repo provides sequence and evidence. The README structure here follows its example. |
-| 21st.dev skills and CLI | [21st.dev](https://21st.dev) | S2 component generation and catalogue search |
-| Refero design skill and MCP | [referodesign/refero_skill](https://github.com/referodesign/refero_skill) | S1 reference research |
-| scroll-world | [oso95/scroll-world](https://github.com/oso95/scroll-world) | S5 cinematic delivery |
-| Claude Code Frontend Design Toolkit | [wilwaldon/Claude-Code-Frontend-Design-Toolkit](https://github.com/wilwaldon/Claude-Code-Frontend-Design-Toolkit) | S5 tool selection |
-
-### History
-
-Version 1.0.0 of this repository vendored two skills from taste-skill
-(`design-taste-frontend` and `redesign-existing-projects`) so the six-stage chain
-would work after a single clone. Version 1.2.0 replaced them with
-`evidence-led-frontend`, which is original work built on this project's own
-measured reference data and checkpoint framework. Those two files are no longer
-present. Credit for them belongs to Leonxlnx, and the upstream repository remains
-the place to get them.
-
----
+**Nothing in this repository is third-party.** Every skill is original work, and the six-stage stack runs end to end on the four skills shipped here. There is no vendored code, no redistributed content, and no peer dependency you have to install for the stack to work.
 
 ## Sources cited in the skills
 
-`evidence-led-frontend` and `references/public-gallery-sources.md` cite measured
-observations from live public websites (Benjamin Creative, PZ Studio, Media.Monks,
-Red Collar) and name four public galleries (Awwwards, Dribbble, CSS Design Awards,
-Mobbin) as research sources.
+`evidence-led-frontend` cites measured observations from live public websites (Benjamin Creative, PZ Studio, Media.Monks, Red Collar) and names four public galleries (Awwwards, Dribbble, CSS Design Awards, Mobbin) as research sources.
 
-Those citations are original measurements: font families, computed display sizes,
-and colour values extracted from the rendered pages with a script. No assets,
-markup, stylesheets, or copy from any of those sites are reproduced here, and
-none of the cited sites are affiliated with or endorse this project.
+Those citations are original measurements: font families, computed display sizes, and colour values extracted from the rendered pages with a script. No assets, markup, stylesheets, or copy from any of those sites are reproduced here, and none of the cited sites are affiliated with or endorse this project.
+
+## History
+
+Earlier versions pointed users at third-party skills and tools (taste-skill, 21st.dev, Refero, scroll-world, a frontend toolkit, and others) as optional peer dependencies at various stages. Version 1.4.0 removed those pointers. The stages are now carried entirely by the four original skills in this repo, so there is nothing external to install and nothing redistributed. Version 1.2.0 had already replaced the last two vendored skills with the original `evidence-led-frontend`.
