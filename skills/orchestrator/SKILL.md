@@ -18,6 +18,7 @@ allowed-tools: Bash, Read, Write, Edit, AskUserQuestion, Skill
 | S0 | Strategy | `/taste-arbitrage` | What should the words say? Run weak-vs-strong test before any copy is written |
 | S1 | Reference | Public galleries (Awwwards, Dribbble, CSSDA, Mobbin) + optional `refero` MCP / `refero-design` skill | Extract palette, type, and layout signals before building anything |
 | S2 | Generate | `/evidence-led-frontend` (landing/portfolio) + peer deps for any UI | Build with constraints from S0 and S1 already in hand |
+| S2M | Generate · Motion | Doctrine gate, script, build/edit, audio (peer skills + HyperFrames) | When the deliverable moves. Name the job of each motion, write the hook, build so the render reproduces |
 | S3 | Audit | `/evidence-led-frontend` audit pass + peer dep `21st-ui-review` | For existing builds, audit before generating |
 | S4 | Verify | Peer dep `/impeccable` | Post-flight. `npm run design:check`. Exit 2 = fix before shipping |
 | S5 | Deliver | Peer dep `/scroll-world` (cinematic landing) + `/frontend-design-toolkit` (tool selection) | Deliver the output in the right format |
@@ -35,6 +36,8 @@ When invoked, read the task context and route:
 **Existing site being improved** → S3 (`/evidence-led-frontend`, audit before it touches anything) → S4 to verify
 
 **Component or UI in any framework** → S2 (peer dep: `21st-ai` / `21st-ui-build` / `ui-styling`)
+
+**Any deliverable that moves** (reel, short, explainer, promo, title card, animated UI, scroll-scrubbed film) → S2 → **S2M Motion** before a frame is rendered
 
 **Cinematic scroll landing page** → S5 (peer dep: `/scroll-world`)
 
@@ -135,6 +138,28 @@ npx ui-skills add fixing-motion-performance
 
 ---
 
+## S2M Generate: Motion
+
+The static stages assume the output holds still. When the deliverable moves, Generate routes through here first. That covers a social reel or short, an explainer, a product promo, an animated title card, a motion detail inside a UI, and a scroll-scrubbed film. Motion is a quality gate like every other stage, not a flourish added at the end.
+
+One rule governs all of it: every motion does a job or it is cut. A move either directs attention, shows a change or a relationship, or carries a beat of the story. Motion that only breathes, idle drift and decorative loops, is cost with no return. Decide the job before you animate the thing.
+
+**1. Doctrine gate.** Before a single frame, write down what each motion is for. If you cannot name the job, the move does not belong. This gate is what stops a piece from becoming a showreel of easing curves with nothing to say.
+
+**2. Script, for anything narrated.** A video with a voice or captions lives or dies on its first three seconds. The hook names a clear subject and opens a gap the viewer needs closed. Then stakes (why it matters to them), a promise (what they get by the end), beats that each land one concrete thing, a new reason to stay every few seconds, real proof near the end, and a payoff that closes the opening gap followed by one ask. Score the draft against clarity, curiosity and truth, strip the tells that make writing sound machine-made, and rewrite until it holds. Real numbers only, each with a source. If the user handed you a hook, it wins and you build under it.
+
+**3. Build and edit.** Compose so the render reproduces: one timeline, seek-safe, the same input giving the same frames every run. Theme the accent to the brand instead of shipping a default. Footage and B-roll have to match the line being spoken, because a cutaway that contradicts the voiceover reads worse than no cutaway at all. For a talking-head cut into a short: cut to the narration, caption with word-level timing, and keep every card clear of the frame edges.
+
+**4. Audio.** A narration voice, a music bed, and cuts that land on the beat. The music has to be licensed for the use. A placeholder track is for checking timing and never ships.
+
+Peer skills supply the craft at each step and install separately. HyperFrames builds branded, seam-authored compositions as standalone HTML you can diff and re-render:
+```bash
+npx skills add heygen-com/hyperframes
+```
+Scroll-scrubbed landing films route through S5 below.
+
+---
+
 ## S3 Audit: `/evidence-led-frontend` (audit pass)
 
 For any existing site. Run before generating. The same skill handles this: point it at existing markup and it diagnoses against the checkpoint gates before it proposes a change.
@@ -173,6 +198,10 @@ npm run design:check
 
 Exit code 2 = fix before shipping. Non-negotiable.
 
+### Motion: verify by render
+
+A motion piece is not done because the build passed or the timeline looks right in the editor. Render it, then open the actual output and pull frames across the whole run. Check that the captions stay readable over the busiest footage, that no card flashes at a frame edge, that the footage matches what is being said at that second, and that the key moves land on the beat. A green build is not evidence. The rendered frames are.
+
 ---
 
 ## S5 Deliver
@@ -190,6 +219,10 @@ Generates a scroll-scrubbed landing page using Higgsfield (stills) and Monid (vi
 claude plugin add wilwaldon/Claude-Code-Frontend-Design-Toolkit
 ```
 Reference for 70+ frontend tools organized by task, picks the right animation lib, MCP, or install stack for the job.
+
+### Motion delivery
+
+Ship the piece in the aspect the platform expects: 9:16 for a reel, short, or TikTok, 16:9 for YouTube and most embeds. Write faststart so it plays before it finishes downloading. Hand over the caption file, two alternate hooks, and the facts sheet with its sources, so the next edit does not start from nothing.
 
 ---
 
@@ -235,4 +268,4 @@ Where two or more tools independently flag the same issue, same type problem, sa
 
 ## Anti-Skipping Rule
 
-Do not invoke S2 (Generate) without running S0 (copy check) and S1 (reference pull). Do not call a build done without S4 (verify). Every skipped stage is a quality debt that shows up in production.
+Do not invoke S2 (Generate) without running S0 (copy check) and S1 (reference pull). Do not call a build done without S4 (verify). Do not render a motion piece before the doctrine gate, and for anything narrated, before the script passes its checks; do not call a render done off a green build, pull frames from the output first. Every skipped stage is a quality debt that shows up in production.

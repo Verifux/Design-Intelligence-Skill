@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.3.0 · 5 November 2026
+
+Motion is now a stage. The stack covered static interfaces end to end and said nothing about work that moves, so a reel, an explainer, a promo, or an animated title fell outside it. This closes that gap.
+
+### Added
+- **S2M Generate: Motion**, a new branch of Generate for any deliverable that moves. Original work, no vendored skills. Four steps: a doctrine gate (name the job of every motion or cut it), a script pass for anything narrated (hook, stakes, promise, beats, re-hooks, proof, payoff, scored and rewritten until it holds), a build-and-edit pass that keeps the render reproducible and the footage matched to the voiceover, and an audio pass on licensed music cut to the beat.
+- **Verify by render** in S4. A motion piece is not done because the build passed. Render it and pull frames across the whole run: captions readable over the footage, no card flash at the edges, footage matching the spoken line, moves landing on the beat.
+- **Motion delivery** in S5. The right aspect per platform, faststart, and the caption file, alternate hooks, and facts sheet handed over so the next edit does not start cold.
+
+### Changed
+- Stage map, routing logic, and the anti-skipping rule now carry the motion path. README stage table and tagline updated to match.
+- HyperFrames referenced as the build peer dep (`npx skills add heygen-com/hyperframes`). Script and motion-direction craft come from peer skills installed separately, in keeping with the repo rule that stages are the product and skills are swappable.
+
+---
+
 ## 1.2.1 · 14 September 2026
 
 Repository renamed to `Design-Intelligence-Skill`.

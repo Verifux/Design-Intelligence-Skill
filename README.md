@@ -5,7 +5,7 @@
 <h1 align="center">Design Intelligence Skill</h1>
 
 <p align="center">
-  <em>Six stages between a brief and an interface that does not look generated.</em>
+  <em>Six stages between a brief and work that does not look generated, static or in motion.</em>
 </p>
 
 <p align="center">
@@ -51,6 +51,7 @@ It reads the task, picks the stage, and pulls in the right skill. You do not hav
 | **S0** | Strategy | What should the words say? Weak-vs-strong test before a line of copy is written | `/taste-arbitrage` |
 | **S1** | Reference | Extract type, palette, and layout signals from real work before building | Public galleries, Refero |
 | **S2** | Generate | Build with the constraints from S0 and S1 already in hand | `/evidence-led-frontend`, 21st |
+| **S2M** | Generate · Motion | When the deliverable moves: name the job of each motion, write the hook, build so the render reproduces | Doctrine gate, script, HyperFrames |
 | **S3** | Audit | For existing builds, diagnose before you touch anything | `/evidence-led-frontend` audit pass |
 | **S4** | Verify | Post-flight. A build is not done because it renders | `impeccable` |
 | **S5** | Deliver | Ship it in the right format | `scroll-world`, toolkit |
