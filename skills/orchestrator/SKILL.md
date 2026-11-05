@@ -39,6 +39,8 @@ When invoked, read the task context and route:
 
 **A component or product UI** → S2 (`/evidence-led-frontend` discipline, the any-UI note below)
 
+**Direction genuinely undecided** → S1 → S2, build two or three distinct directions on the same content and compare them side by side before committing
+
 **Any deliverable that moves** (reel, short, explainer, promo, title card, animated UI, scroll-scrubbed film) → S2 → **S2M Motion** before a frame is rendered
 
 **End of any session** → run the `/mastery-loop` retrospective (2 min)
@@ -53,6 +55,15 @@ Run before any copy is written. The weak-vs-strong test:
 3. Could a competitor with the same AI tools produce the exact same sentence? If yes, commodity layer.
 4. Does it show the decision trail (research → reframe → build) or only the shipped artefact? Trail is strong.
 5. Does it connect user need, business goal, and technical constraint in one paragraph? Connected is strong.
+
+### Copy tells to cut
+The test above judges whether a line says anything. These shapes give away that a machine wrote it, cut them on sight:
+- "Not X but Y", and "not just X but Y". Say Y.
+- One-word dramatic sentences ("Panic." "Simple." "Wild."). One per piece at most.
+- A metaphor standing in for a fact ("a goldmine", "the secret sauce"). Say the plain fact.
+- Category marketing words a rival could run unchanged ("Elevate", "Seamless", "Transform your workflow").
+
+Score every headline, hook, and body line against the test and these tells, then rewrite until it passes. A first draft that reads clean has usually just hidden the tells better.
 
 ---
 
@@ -69,6 +80,10 @@ Pull from these public sources before building. Mine for specific decisions, not
 
 **Extraction method.** Pick 3 sites. For each, note: font family, type scale, primary color and neutral, layout family (grid type, hero layout), and motion signature (scroll behavior, hover states). Do not copy markup, extract the visual system. Measure the values with a script rather than recalling them, so S2 has real numbers to build from.
 
+**Keep two kinds of reference apart.** A *product reference* says what the thing should feel like, the voice, the palette, the density. An *interaction reference* says how one pattern should behave, a filter, a stepper, an onboarding flow. Mixing them is how a page ends up looking like one site and working like another. Pull each from the right source and label which is which.
+
+**Measure the real viewport, not the image.** A 2x screenshot has twice the pixels of the viewport it came from, so halve it. If you cannot tell the capture width, say what you assumed. A number measured at the wrong width is worse than no number, because it looks exact.
+
 **Convergence rule.** Where two or more independent references use the same type choice, palette signal, or layout pattern, that is the real trend. Weight it. Where only one does, investigate before you copy it.
 
 ---
@@ -81,6 +96,24 @@ Use `/evidence-led-frontend`. It allows exactly two sources for any decision: a 
 It emits a decision ledger BEFORE the code. If a run produces markup without a ledger, that run skipped the part that makes the output defensible, and you should push back rather than accept it.
 
 Declare the read first: *"Reading this as a [page kind] for [audience], where the visitor's single next action is [action], and the thing that must land in the first viewport is [claim]."* If you cannot name the action, stop and ask.
+
+### Structure before surface
+Before type and colour, settle the structure in grayscale. Lay out the first viewport with no colour and no final type: the hierarchy, the one thing the eye should land on, the primary action, and the empty, loading, and error states. If it does not read in grayscale, it will not read in colour. Colour and type sharpen a structure that already works, they cannot rescue one that does not. Fix the layout here, where changes are cheap, before you spend a decision on a typeface.
+
+The reflex to watch is the left-right split, text one side and an image the other. The model reaches for it before a word of copy is written, which is exactly why it reads as templated. Choose the first-viewport skeleton on purpose, where the eye enters, what carries the weight, where the one action sits, before you write the copy that fills it.
+
+The first viewport is a hook. It has to say what this is and who it is for inside a second or two, and the things that kill a video hook kill a hero too (see the hook killers in S2M): a slow lead-in, wording the reader has to decode, or a claim aimed at no one in particular.
+
+### When the direction is undecided
+When the visual direction is genuinely open, do not marry the first idea. Build two or three distinct directions on the same real content and the same first viewport, then put them side by side and choose with a reason. Distinct means they disagree about something that matters, the type voice, the density, how loud the accent runs, not three tints of one idea. Keep the content identical across them so you are comparing directions and not copy. Record why the winner won in the ledger. One direction deepened still beats three half-built ones, so diverge only when the choice is real, then converge fast.
+
+### Interface motion
+Three motions earn their place in almost any interface, and a screen that skips them feels broken rather than calm:
+1. **Feedback on the primary action.** The press gets an immediate response, completion hands back a result.
+2. **The origin of a state change.** When something opens, selects, or enters a list, show where it came from so the user is not guessing what just happened.
+3. **The entrance.** Content arrives in a short staggered reveal, not all at once, which reads as a page load.
+
+Everything past these three is a signature move, and one per screen is the limit. Animate transform and opacity, keep entrances at 0.15 to 0.25s, honour `prefers-reduced-motion`, and never leave a box idly pulsing to fill space.
 
 ### Any UI (components, product interfaces)
 The same discipline carries, the scope changes. `/evidence-led-frontend` is tuned for marketing pages, so for a component or a product screen, keep the ledger and the gates but drop the large-display-type baseline, which is wrong for dense UI. Build against whatever component tooling the project already has, the ledger still governs every decision. If the project has a design system, read it first and inherit it rather than inventing a parallel one.
@@ -98,13 +131,16 @@ One rule governs all of it: every motion does a job or it is cut. A move either 
 
 **1. Doctrine gate.** Before a single frame, write down what each motion is for. If you cannot name the job, the move does not belong. This gate is what stops a piece from becoming a showreel of easing curves with nothing to say.
 
-**2. Script, for anything narrated.** A video with a voice or captions lives or dies on its first three seconds. The hook names a clear subject and opens a gap the viewer needs closed. Then stakes (why it matters to them), a promise (what they get by the end), beats that each land one concrete thing, a new reason to stay every few seconds, real proof near the end, and a payoff that closes the opening gap followed by one ask. Score the draft against clarity, curiosity and truth, strip the tells that make writing sound machine-made, and rewrite until it holds. Real numbers only, each with a source. If the user handed you a hook, it wins and you build under it.
+**2. Script, for anything narrated.** A video with a voice or captions lives or dies on its first three seconds. The hook names a clear subject and opens a gap the viewer needs closed. Then stakes (why it matters to them), a promise (what they get by the end), beats that each land one concrete thing, a new reason to stay every few seconds, real proof near the end, and a payoff that closes the opening gap followed by one ask. Score the draft against clarity, curiosity and truth, strip the tells that make writing sound machine-made, and rewrite until it holds. Real numbers only, each with a source. If the user handed you a hook, it wins and you build under it. The hook has four common ways to fail, each losing the viewer in the first second: a slow lead-in before the topic ("this is one of the craziest things"), wording they have to decode, a topic aimed at no one in particular, and a tease the payoff never earns. Name the viewer and the gap in plain words, fast.
 
-**3. Build and edit.** Compose so the render reproduces: one timeline, seek-safe, the same input giving the same frames every run. Theme the accent to the brand instead of shipping a default. Footage and B-roll have to match the line being spoken, because a cutaway that contradicts the voiceover reads worse than no cutaway at all. For a talking-head cut into a short: cut to the narration, caption with word-level timing, and keep every card clear of the frame edges.
+**3. Build and edit.** Compose so the render reproduces: one timeline, seek-safe, the same input giving the same frames every run. Theme the accent to the brand instead of shipping a default. Footage and B-roll have to match the line being spoken, because a cutaway that contradicts the voiceover reads worse than no cutaway at all. For a talking-head cut into a short: cut to the narration, caption with word-level timing, and keep every card clear of the frame edges. The craft rules that separate a cheap cut from an expensive one: one accent colour for the whole piece, graphics that draw or grow themselves rather than just appearing, entrances at 0.15 to 0.25s, something changing every two to three seconds and landing on the words, and nothing pulsing to fill dead air. If a stretch has nothing to change, the edit is too long, tighten it.
 
 **4. Audio.** A narration voice, a music bed, and cuts that land on the beat. The music has to be licensed for the use. A placeholder track is for checking timing and never ships.
 
 The frames animate the same evidence a static page does, so the motion inherits the palette, type, and accent discipline from S1 and S2 rather than starting a new look.
+
+### Scroll landings
+For a landing, brand, or launch page built to persuade, the scroll is the motion. Two things have to be present: sections that enter on the content below the fold, and at least one scroll-driven beat where the main subject visibly changes as you move. Pick the technique from the page's own material, a wordmark collapsing into the nav, a background that shifts by chapter, a line of copy lighting up word by word, rather than defaulting to a pinned hero that zooms. Documents, tools, and dashboards do not get this.
 
 ---
 
@@ -135,6 +171,12 @@ A build is not done because it renders. Run the checkpoint gates from `/evidence
 - **Factual groundedness** (`aix_04`). No invented statistic, customer name, or fake testimonial. Placeholders are labelled as placeholders.
 
 Fix what fails. Report what you could not fix and why. A gate you skipped is a gate that fails in front of a client.
+
+### Look at the real frames
+The gates above are necessary and not sufficient. Render the page at the real viewports (a narrow phone, a tablet, a laptop, a wide screen) and look at the actual screenshots, not the code and not the editor preview. Tab through it on the keyboard and watch the focus move. Reading the markup tells you what you intended; the frame tells you what shipped, and the gap between the two is where the templated tells hide. Where you can, hand the frames to a second reviewer working without your context, a fresh agent or a person, because the author is the worst judge of whether their own page reads. A reviewer who finds nothing says so, and does not invent changes to look useful. They grade against a fixed anchor, take the lower grade when unsure, separate a real defect from a matter of taste, and state plainly what they could not check. A static screenshot is not proof that the motion or the flow works, only that the frame does. A green build is not evidence. The frames are.
+
+### Walk the task
+Looking good and working are different sign-offs. For anything with a real flow, a form, a multi-step process, anything that saves something, walk the task on the running page before you call it done: enter at the real starting point and go through to the result. Mark every spot where you get stuck, take a wrong turn, or have to stop and guess. At each step, can you tell whether you are waiting, done, or have failed, and does the feedback show up next to what you did? Report the few issues that block the main task, not a list of everything. Do not read a real person's speed off how long the walk took.
 
 ### Motion: verify by render
 

@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.5.0 · 5 November 2026
+
+A batch of capabilities the stack was missing, added as original method. The ideas were sharpened by studying two strong peer skills, a design skill and a video-writing skill, nothing was copied from either.
+
+### Added
+- **Structure before surface** in S2. Settle the first viewport in grayscale (hierarchy, the one focal point, the primary action, and the empty, loading, and error states) before type or colour, and name the left-right split reflex as the tell it is. Choose the skeleton before the copy that fills it.
+- **Comparing directions** in S1 and S2. When the direction is genuinely open, build two or three distinct directions on the same content, put them side by side, and choose with a reason recorded in the ledger.
+- **Interface motion** in S2. The three motions almost any interface needs: feedback on the primary action, the origin of a state change, and a staggered entrance. One signature move past that, no idle pulsing.
+- **Reference discipline** in S1. Keep product references (what it should feel like) apart from interaction references (how a pattern behaves), and measure the real viewport rather than the image's pixels.
+- **Copy tells** in S0. The machine-written shapes to cut on sight: "not X but Y", one-word dramatic sentences, a metaphor standing in for a fact, and category marketing words a rival could run unchanged.
+- **Hook craft** in S2M, generalised to any opening. The four ways a hook fails (slow lead-in, wording to decode, aimed at no one, a tease with no payoff), which kill a page hero as surely as a video hook.
+- **Motion craft rules** in S2M: one accent per piece, graphics that draw themselves, 0.15 to 0.25s entrances, change every two to three seconds on the words, nothing pulsing to fill dead air.
+- **Scroll landings** in S2M: two musts (content-driven section entrances and one scroll-driven beat), with the technique picked from the page's own material rather than a default pinned zoom.
+- **Look at the real frames** and **Walk the task** in S4. Render and review the actual screenshots with an independent reviewer who grades against an anchor and states what they could not check, and for anything with a flow, walk the task on the running page and mark where a user gets stuck, takes a wrong turn, or hesitates. Looking good and working are separate sign-offs.
+
 ## 1.4.0 · 5 November 2026
 
 Self-contained. The stack used to route several stages to third-party skills and tools as peer dependencies. It now stands entirely on its own four skills, so there is nothing external to install and the whole six-stage chain works after a single clone.
